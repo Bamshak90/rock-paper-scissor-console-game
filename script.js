@@ -1,78 +1,50 @@
-
-
-// Creating a function that allows the computer to randomly  generate a move
-
 let humanScore = 0;
-
 let computerScore = 0;
 
-
-function getComputerMove() {
+function getComputerChoice() {
   const randomNumber = Math.random();
 
-  if (randomNumber >= 0 && randomNumber < 1/3) {
-  
+  if (randomNumber >= 0 && randomNumber < 1 / 3) {
     console.log("Rock");
-    
-  } else if (randomNumber >= 1/3 && randomNumber < 2/3) {
-
-      console.log("Paper");
-
-  } else if ( randomNumber >= 2/3 && randomNumber < 1) {
-
+    return "rock";
+  } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+    console.log("Paper");
+    return "paper";
+  } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
     console.log("Scissors");
+    return "scissors";
   }
 
-
   // console.log(randomNumber)
-
-
 }
-
-getComputerMove()
 
 function getHumanChoice() {
   const userMove = prompt("Enter your move: Rock, Paper, Scissors");
+  return userMove.toLowerCase();
 }
-
-getHumanChoice()
-
 
 function playRound(humanChoice, computerChoice) {
-
-  humanChoice = humanChoice.toLowerCase();
-  computerChoice = computerChoice.toLowerCase();
-
   if (humanChoice === computerChoice) {
-
     console.log("It's a tie");
-
   } else if (humanChoice === "rock" && computerChoice === "paper") {
-
     console.log("You lose");
-
   } else if (humanChoice === "rock" && computerChoice === "scissors") {
-
     console.log("You win");
-
   } else if (humanChoice === "paper" && computerChoice === "rock") {
-
-    console.log("You win"); 
-    
+    console.log("You win");
   } else if (humanChoice === "paper" && computerChoice === "scissors") {
-
-    console.log("You lose.")
-
+    console.log("You lose.");
   } else if (humanChoice === "scissors" && computerChoice === "rock") {
-    
-    console.log("You lose.")
-
-  } else if (humanChoice === "scissor"  && computerChoice === "paper" ) {
-
-    console.log("You win.")
-
+    console.log("You lose.");
+  } else if (humanChoice === "scissors" && computerChoice === "paper") {
+    console.log("You win.");
+  } else {
+    console.log("Invalid input. Please enter Rock, Paper, or Scissors.");
   }
-
-    
-
 }
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
+
